@@ -7,11 +7,16 @@
 
 import UIKit
 
-class OnBoardingViewController: UIViewController {
+protocol OnBoardingViewProtocol: AnyObject {
+    func configureCollectionView()
+}
+
+final class OnBoardingViewController: UIViewController {
     
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
+    private let onBoardingViewModel = OnBoardingViewModel()
     
     var slides: [OnBoardingSlide] = []
     var currentPage = 0 {
@@ -28,16 +33,9 @@ class OnBoardingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        onBoardingViewModel.view = self
+        onBoardingViewModel.viewDidLoad()
         
-        
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
-        slides = [OnBoardingSlide(title: "Hello", description: "My Name is Bedirhan", image: UIImage(named: "logo")!),
-                  OnBoardingSlide(title: "Welcome", description: "To my App", image: UIImage(named: "imdb")!),
-                  OnBoardingSlide(title: "Who wants to be a", description: "Millionaire", image: UIImage(named: "raining")!)
-        ]
     }
     
     @IBAction func nextButtonClicked(_ sender: UIButton) {
@@ -84,5 +82,18 @@ extension OnBoardingViewController: UICollectionViewDelegate,UICollectionViewDat
     
     
     
+}
+
+extension OnBoardingViewController: OnBoardingViewProtocol {
+    
+    func configureCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        slides = [OnBoardingSlide(title: "Hello", description: "My Name is Bedirhan", image: UIImage(named: "logo")!),
+                  OnBoardingSlide(title: "Welcome", description: "To my App", image: UIImage(named: "imdb")!),
+                  OnBoardingSlide(title: "Who wants to be a", description: "Millionaire", image: UIImage(named: "raining")!)
+        ]
+    }
 }
 
