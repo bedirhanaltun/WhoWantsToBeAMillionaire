@@ -141,17 +141,42 @@
             </objects>
             <point key="canvasLocation" x="128.98550724637681" y="97.767857142857139"/>
         </scene>
-        <!--View Controller-->
+        <!--Question Screen View Controller-->
         <scene sceneID="135-5U-J4W">
             <objects>
-                <viewController id="i2W-u9-ui3" sceneMemberID="viewController">
+                <viewController id="i2W-u9-ui3" customClass="QuestionScreenViewController" customModule="WhoWantsToBeAMillionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fyr-d4-8cG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2NH-k3-jBF">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="nrw-9P-H3X">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nrw-9P-H3X" id="ADd-aH-zKR">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ez5-wW-czB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ez5-wW-czB" firstAttribute="trailing" secondItem="2NH-k3-jBF" secondAttribute="trailing" id="EGD-Cx-QLv"/>
+                            <constraint firstItem="2NH-k3-jBF" firstAttribute="top" secondItem="ez5-wW-czB" secondAttribute="top" id="Git-jK-LvL"/>
+                            <constraint firstItem="ez5-wW-czB" firstAttribute="bottom" secondItem="2NH-k3-jBF" secondAttribute="bottom" id="hKL-a9-90M"/>
+                            <constraint firstItem="2NH-k3-jBF" firstAttribute="leading" secondItem="fyr-d4-8cG" secondAttribute="leading" id="kow-FP-7PQ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="suS-15-F3s"/>
+                    <connections>
+                        <outlet property="tableView" destination="2NH-k3-jBF" id="Ut6-qa-KSd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A3C-PD-YjP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
