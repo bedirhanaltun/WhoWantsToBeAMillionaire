@@ -22,8 +22,6 @@ class QuestionScreenViewController: UIViewController {
 
         tableView.delegate = self
         tableView.dataSource = self
-        
-        
     }
 
     @IBOutlet weak var tableView: UITableView!

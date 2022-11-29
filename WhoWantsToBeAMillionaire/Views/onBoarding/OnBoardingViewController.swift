@@ -35,7 +35,6 @@ final class OnBoardingViewController: UIViewController {
         super.viewDidLoad()
         onBoardingViewModel.view = self
         onBoardingViewModel.viewDidLoad()
-        
     }
     
     @IBAction func nextButtonClicked(_ sender: UIButton) {
